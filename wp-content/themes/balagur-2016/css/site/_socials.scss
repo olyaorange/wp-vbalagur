@@ -1,0 +1,82 @@
+@charset "utf-8";
+
+@import "../common/mixins";
+@import "../common/vendor-prefixes";
+@import "../common/variables";
+@import "variables";
+
+// Styles for social buttons in header and on /contactme page
+.vb-soc-wrapper {
+  .soc-icon {
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+  }
+}
+.vb-social-navigation {
+
+  .soc-icon {
+    display: inline-block;
+    width: 46px;
+    height: 46px;
+  }
+  svg {
+    width: 100%;
+    height: auto;
+    margin-bottom: -5px;
+  }
+}
+
+.vb-soc-wrapper-color {
+  svg {
+    stop {
+      @include transition(all .3s ease);
+    }
+    stop:first-child {
+      stop-color: $scheme;
+    }
+    stop:last-child {
+      stop-color: $scheme;
+    }
+  }
+  .soc-icon:hover {
+    svg {
+      stop:first-child {
+        stop-color: $accented-color-light;
+      }
+      stop:last-child {
+        stop-color: $primary-color;
+      }
+    }
+  }
+}
+.vb-soc-wrapper {
+  .soc-icon-fcb {
+    .st0{fill:url(#SVGID_1_);}
+    .st1{fill:url(#SVGID_2_);}
+  }
+  .soc-icon-vk {
+    .st0{fill:url(#SVGID_3_);}
+    .st1{fill:url(#SVGID_4_);}
+  }
+  .soc-icon-insta {
+    .st0{fill:url(#SVGID_5_);}
+    .st1{fill:url(#SVGID_6_);}
+  }
+}
+.vb-social-navigation {
+  .soc-icon-fcb {
+    .st0{fill:url(#SVGID_11_);}
+    .st1{fill:url(#SVGID_12_);}
+  }
+  .soc-icon-vk {
+    .st0{fill:url(#SVGID_13_);}
+    .st1{fill:url(#SVGID_14_);}
+  }
+  .soc-icon-insta {
+    .st0{fill:url(#SVGID_15_);}
+    .st1{fill:url(#SVGID_16_);}
+  }
+}

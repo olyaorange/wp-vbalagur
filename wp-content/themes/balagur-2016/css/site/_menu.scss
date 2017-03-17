@@ -1,0 +1,147 @@
+@charset "utf-8";
+
+@import "../common/mixins";
+@import "../common/vendor-prefixes";
+@import "../common/variables";
+@import "variables";
+
+// Menu button
+// ----------------
+.vb-menu-toggle {
+  display: inline-block;
+  color: $scheme;
+  font-size: 20px;
+  font-weight: 300;
+  @include transition(color .3s ease);
+
+  span {
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    height: 6px;
+    width: 40px;
+    background-color: $scheme;
+    border-radius: 6px;
+    margin: 18px 10px 19px 0;
+
+    @include transition(background-color .3s ease);
+
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 6px;
+      border-radius: 6px;
+      background-color: $scheme;
+      left: 0;
+      @include transition(background-color .3s ease);
+    }
+    &:before {
+      top: -12px;
+    }
+    &:after {
+      bottom: -12px;
+    }
+  }
+
+  &:hover {
+    color: $scheme-medium;
+
+    span {
+      background-color: $scheme-medium;
+      &:before,
+      &:after {
+        background-color: $scheme-medium;
+      }
+    }
+  }
+}
+
+// Menu inner
+// ----------------
+.vb-main-navigation {
+  position: fixed;
+  z-index: 11;
+  top: 0;
+  left: 0;
+  max-width: 300px;
+  width: 80%;
+  height: 100%;
+  @include translate(-300px, 0);
+  @include transition-transform(.3s ease);
+}
+
+.menu-mainmenu-container {
+  height: 100%;
+  background-color: $scheme-medium;
+}
+
+.vb-menu-mainmenu-title {
+  font-weight: 300;
+  color: $scheme-light;
+  padding: 2rem;
+  margin-bottom: 0;
+}
+
+.vb-primary-menu {
+  li {
+    border-bottom: 1px solid $scheme-light;
+  }
+  a {
+    display: block;
+    width: 100%;
+    padding: 1rem 2rem;
+    color: $scheme-thin;
+    font-size: 24px;
+    font-weight: 300;
+
+    @include transition(background-color .3s ease-in);
+
+    &:hover {
+      background-color: $scheme-light;
+    }
+  }
+}
+
+// MENU IS OPENED
+.menu-opened {
+  position: relative;
+}
+
+.menu-overlay {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba($scheme-dark, 0.3);
+}
+
+.vb-main-navigation {
+  &.menu-visible {
+    @include translate(0, 0);
+  }
+}
+
+@media (max-width: $screen-xs-max) {
+  .vb-menu-toggle {
+    font-size: 0;
+  }
+}
+
+// Menu in footer
+// ------------------
+.vb-secondary-menu {
+  text-align: center;
+  li {
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+  }
+  a {
+    text-transform: uppercase;
+    font-size: 18px;
+  }
+}

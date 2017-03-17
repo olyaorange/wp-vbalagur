@@ -1,0 +1,63 @@
+@charset "utf-8";
+
+@import "../common/mixins";
+@import "../common/vendor-prefixes";
+@import "../common/variables";
+@import "variables";
+
+b, strong {
+  font-weight: 500;
+}
+h1 {
+  font-size: 2.5rem;
+  font-weight: 500;
+}
+h2 {
+  font-weight: 500;
+  font-size: 30px;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+h3 {
+  font-size: 26px;
+  line-height: 36px;
+  font-weight: 500;
+}
+h4 {
+  font-size: 20px;
+  font-weight: 400;
+}
+h5 {
+  font-size: 14px;
+  font-weight: 500;
+  color: $scheme;
+  text-transform: uppercase;
+}
+.vb-site {
+  font-size: 18px;
+}
+.vb-para {
+  font-size: 20px;
+}
+blockquote {
+  font-size: 20px;
+  text-align: right;
+  &:before,
+  &:after {
+    font-size: 50px;
+    font-family: fantasy;
+    line-height: 1px;
+    display: inline-block;
+    margin-top: 25px;
+    vertical-align: top;
+  }
+  &:before {
+    content: "\201C";
+    margin-right: 10px;
+  }
+  &:after {
+    content: "\201D";
+    margin-left: 10px;
+    margin-right: -27px;
+  }
+}

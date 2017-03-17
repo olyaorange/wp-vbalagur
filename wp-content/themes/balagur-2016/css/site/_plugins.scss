@@ -1,0 +1,13 @@
+@charset "utf-8";
+
+@import "../common/mixins";
+@import "../common/vendor-prefixes";
+@import "../common/variables";
+@import "variables";
+
+.vb-slick-slider {
+   visibility: hidden;
+  &.slick-initialized {
+    visibility: visible;
+  }
+}

@@ -1,0 +1,132 @@
+@charset "utf-8";
+
+@import "../common/mixins";
+@import "../common/vendor-prefixes";
+@import "../common/variables";
+@import "variables";
+
+.vb-button {
+  display: inline-block;
+}
+.vb-button-big {
+  font-size: 16px;
+  line-height: 25px;
+  padding: 13px 5%;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 3;
+
+  &:before,
+  &:after {
+    content: "";
+    display: block;
+    width: 36px;
+    height: 35px;
+    position: absolute;
+    top: 8px;
+    background-color: inherit;
+    z-index: -1;
+    @include rotate(45deg);
+  }
+  &:before {
+    left: -18px;
+  }
+  &:after {
+    right: -18px;
+  }
+}
+.vb-submit {
+  display: inline-block;
+  padding: 0;
+  input {
+    display: inline-block;
+    padding: 13px 20px;
+    min-width: 150px;
+  }
+}
+.vb-button-primary {
+  $button-primary-color: $primary-color;
+  $button-primary-color-hover: $primary-color-dark;
+
+  background-color: $button-primary-color;
+  color: $light-color;
+
+  @include transition(.3s background-color ease-in-out);
+
+  &:hover,
+  &:active {
+    background-color: $button-primary-color-hover;
+    color: $light-color;
+  }
+  &.js-disabled {
+    opacity: 0.7;
+    &:hover,
+    &:active {
+      background-color: $button-primary-color;
+    }
+  }
+}
+.vb-button-accented {
+  $button-accented-color: $accented-color-light;
+  $button-accented-color-hover: $accented-color;
+
+  background-color: $button-accented-color;
+  color: $scheme-dark;
+
+  @include transition(.3s background-color ease-in-out);
+
+  &:hover,
+  &:active {
+    background-color: $button-accented-color-hover;
+    color: $scheme-dark;
+  }
+}
+
+.vb-link-animated {
+  position: relative;
+  display: inline-block;
+  text-transform: uppercase;
+  @include transition(color 0.3s ease-in-out);
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    opacity: 0.2;
+  }
+  &:before {
+    top: 0;
+    @include transition(opacity 0.3s ease-in-out, height 0.3s ease-in-out);
+  }
+  &:after {
+    top: 100%;
+    opacity: 0;
+    @include translate(0, -10px);
+    -webkit-transition: -webkit-transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    -moz-transition: -moz-transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  }
+  &:hover:before {
+    height: 4px;
+  }
+  &:hover:before,
+  &:hover:after {
+    opacity: 1;
+    @include translate(0, 0);
+  }
+}
+.vb-link-primary {
+  padding: 12px 20px 8px;
+  color: $primary-color-light;
+  &:before,
+  &:after {
+    background: $primary-color;
+  }
+  &:hover,
+  &:active {
+    color: $primary-color;
+  }
+}

@@ -1,0 +1,84 @@
+* {
+  @include box-sizing(border-box);
+}
+*:before,
+*:after {
+  @include box-sizing(border-box);
+}
+
+html {
+  font-size: 100%;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+body {
+  font-size: 100%;
+  line-height: 100%;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+  &:link, &:visited, &:active, &:focus {
+    outline: none;
+    text-decoration: inherit;
+  }
+}
+button {
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 0;
+}
+
+input,
+button,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  padding: 0;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+blockquote, p, h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+ul,
+ol {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+}
+figure {
+  margin: 0;
+}
+img {
+  vertical-align: middle;
+}
+hr {
+  border: none;
+  margin: 0;
+}
+
+:focus {
+  outline: 0;
+}
+
+// iOS "clickable elements" fix for role="button"
+//
+// Fixes "clickability" issue (and more generally, the firing of events such as focus as well)
+// for traditionally non-focusable elements with role="button"
+// see https://developer.mozilla.org/en-US/docs/Web/Events/click#Safari_Mobile
+
+[role="button"] {
+  cursor: pointer;
+}

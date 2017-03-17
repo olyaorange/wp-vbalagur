@@ -1,0 +1,27 @@
+@charset "utf-8";
+
+@import "../common/mixins";
+@import "../common/vendor-prefixes";
+@import "../common/variables";
+@import "variables";
+
+
+// Contactme page
+// -----------------
+.vb-site-contactme {
+  .vb-contactme-image {
+    width: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 4rem auto;
+    img {
+      @include img-responsive;
+    }
+  }
+}
+
+// Video page
+// -----------------
+.vb-video-item {
+  margin-bottom: $offset-xs;
+}
