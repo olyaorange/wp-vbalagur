@@ -49,11 +49,13 @@
                                     <span class="vb-footer-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></span>
                                 </div>
                                 <div class="col-md-4 col-sm-6">
-                                    <ul class="list-unstyled">
-                                        <li>Киев, Украина</li>
-                                        <li><a href="tel:+380933683780">+38(093)-368-3780</a></li>
-                                        <li><a href="mailto:vbalagur@yandex.ru">vbalagur@yandex.ru</a></li>
-                                    </ul>
+                                    <address>
+                                        <ul class="list-unstyled">
+                                            <li>Киев, Украина</li>
+                                            <li><a href="tel:+380933683780">+38(093)-368-3780</a></li>
+                                            <li><a href="mailto:vbalagur@yandex.ru">vbalagur@yandex.ru</a></li>
+                                        </ul>
+                                    </address>
                                 </div>
                             </div>
                         </div><!-- .vb-footer-credits -->

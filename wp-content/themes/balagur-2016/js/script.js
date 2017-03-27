@@ -88,11 +88,12 @@
             $('.menu-overlay').fadeOut(300);
         });
     };
-    function scrollToLinks() {
+
+    $.fn.scrollToLinks = function() {
         var targetIdName = "",
             targetOffsetTop = 0;
 
-        $('a[href^="#"]').on('click', function(e) {
+        this.on('click', function(e) {
             targetIdName = $(this).attr("href");
 
             if ( $(targetIdName).length ) {
@@ -106,18 +107,64 @@
             }
         })
     };
-    function scrollTop(button) {
-        $(button).on('click', function() {
+
+    $.fn.scrollToTop = function() {
+        var _ = this;
+
+        _.on('click', function() {
             $("html, body").animate({ scrollTop: 0 }, 600);
-            return false;
-        })
+        });
+
+        $(window).on('scroll.balagur2016', function() {
+            if ($(document).scrollTop() > 550) {
+                _.addClass('isShown');
+            } else {
+                _.removeClass('isShown');
+            }
+        });
     };
-    function showScrollTop(button) {
-        if ($(document).scrollTop() > 550) {
-            $(button).addClass('isShown');
-        } else {
-            $(button).removeClass('isShown');
+
+    $.fn.lazyLoadCache = function() {
+        var _ = this;
+
+        var storage = window.localStorage;
+        if (!storage.cachedElements) {
+            storage.cachedElements = "";
         }
+
+        function logCache(source) {
+            if (storage.cachedElements.indexOf(source, 0) < 0) {
+                if (storage.cachedElements != "")
+                    storage.cachedElements += ";";
+                storage.cachedElements += source;
+            }
+        }
+
+        function cached(source) {
+            return (storage.cachedElements.indexOf(source, 0) >= 0);
+        }
+
+        _.on('load', function() {
+            logCache($(this).attr('src'));
+        });
+        _.each(function() {
+            var source = $(this).attr('data-lazy-src');
+            if (cached(source))
+                $(this).attr('src', source);
+        });
+
+        $(window).load(function() {
+            _.each(function() {
+                if ($(this).is('[data-lazy-src]')) {
+                    if ($(this).is('img')) {
+                        $(this).attr('src', $(this).attr('data-lazy-src')).fadeIn();
+                    } else {
+                        var url = 'url(' + $(this).attr('data-lazy-src') + ')';
+                        $(this).css('background-image', url);
+                    }
+                }
+            });
+        });
     };
 
     $(document).ready(function() {
@@ -179,15 +226,13 @@
         formChangeStates('.vb-form-wrapper', '.vb-form-common-group');
         formValidation('.vb-form-wrapper.comment-form');
         toggleMenu();
-        scrollToLinks();
-        scrollTop('.js-scrollTop');
 
-        $( window )
-            .on('resize.balagur2016', function() {
+        $('a[href^="#"]').scrollToLinks();
+        $('.js-scrollTop').scrollToTop();
+        $(".vb-img-lazy").lazyLoadCache();
 
-            })
-            .on('scroll.balagur2016', function() {
-                showScrollTop('.js-scrollTop');
-            });
+       /* $( window ).load(function() {
+
+        });*/
     });
 })( jQuery );

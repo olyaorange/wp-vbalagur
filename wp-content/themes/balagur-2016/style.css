@@ -1101,6 +1101,9 @@ hr {
   .vb-slick-slider.slick-initialized {
     visibility: visible; }
 
+img.vb-img-lazy {
+  display: none; }
+
 .clearfix:before, .clearfix:after {
   content: " ";
   display: table; }
@@ -1991,7 +1994,6 @@ blockquote {
 
 .vb-reviews-bg {
   position: relative;
-  background-image: url(/wp-content/uploads/2017/02/reviewsBgLoveImg.jpg);
   background-position: center center;
   background-size: cover;
   z-index: 0; }
@@ -2194,7 +2196,6 @@ blockquote {
     margin-bottom: 20px; } }
 .vb-contacts-bg {
   position: relative;
-  background-image: url(/wp-content/uploads/2016/12/kiev-map.jpg);
   background-size: cover;
   z-index: 0; }
   .vb-contacts-bg:after {

@@ -88,9 +88,9 @@ get_header(); ?>
 					<a href="/photo" class="vb-link-animated vb-link-primary">Посмотреть все фото</a>
 				</div>
 				<div class="row">
-					<div class="col-md-4 col-sm-6"><img class="img-responsive" src="/wp-content/uploads/2017/02/Balagur_Ukrainian-Kids-Fashion-Week.jpg" alt="Владислав Балагур Ведущий Ukrainian Kids Fashion Week"></div>
-					<div class="col-md-4 col-sm-6"><img class="img-responsive" src="/wp-content/uploads/2017/02/Balagur_Vlad-Wedding-host.jpg" alt="Владислав Балагур Ведущий Тамада Свадьбы"></div>
-					<div class="col-md-4 hidden-sm"><img class="img-responsive" src="/wp-content/uploads/2017/02/Balagur-Euro-2013.jpg" alt="Влад Балагур Ведущий Евро 2013"></div>
+					<div class="col-md-4 col-sm-6"><img class="img-responsive vb-img-lazy" data-lazy-src="/wp-content/uploads/2017/02/Balagur_Ukrainian-Kids-Fashion-Week.jpg" src="/wp-content/uploads/2017/03/zero.gif" alt="Владислав Балагур Ведущий Ukrainian Kids Fashion Week"></div>
+					<div class="col-md-4 col-sm-6"><img class="img-responsive vb-img-lazy" data-lazy-src="/wp-content/uploads/2017/02/Balagur_Vlad-Wedding-host.jpg" src="/wp-content/uploads/2017/03/zero.gif" alt="Владислав Балагур Ведущий Тамада Свадьбы"></div>
+					<div class="col-md-4 hidden-sm"><img class="img-responsive vb-img-lazy" data-lazy-src="/wp-content/uploads/2017/02/Balagur-Euro-2013.jpg" src="/wp-content/uploads/2017/03/zero.gif" alt="Влад Балагур Ведущий Евро 2013"></div>
 				</div>
 				<div class="text-center">
 					<p class="vb-para">Большое спасибо всем кто привлёк и доверил мне мероприятие. </p>
@@ -124,6 +124,7 @@ get_header(); ?>
 					<h2>Корпоративы</h2>
 				</div>
 			</div>
+            <?php /*
 			<div class="js-slickCorporates vb-corporates-slider vb-slick-slider">
 				<div><div><img src="/wp-content/uploads/2016/12/corporatesMTS-300x108.png" alt=""></div></div>
 				<div><div><img src="/wp-content/uploads/2016/12/corporatesSyshiya.png" alt=""></div></div>
@@ -150,10 +151,11 @@ get_header(); ?>
 				<div><div><img src="/wp-content/uploads/2016/12/corporatesHyatt-300x125.png" alt=""></div></div>
 				<div><div><img src="/wp-content/uploads/2016/12/corporatesPrestigeHall.png" alt=""></div></div>
 			</div>
+            */?>
 		</section>
 
 		<section id="reviews" class="vb-reviews vb-custom-bg">
-			<div class="vb-reviews-bg">
+			<div class="vb-reviews-bg vb-img-lazy" data-lazy-src="/wp-content/uploads/2017/03/reviewsBgLoveImg.jpg">
 				<div class="container">
 					<div class="vb-reviews-container">
 						<div class="text-center bottom-offset-xl">

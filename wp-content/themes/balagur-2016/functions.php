@@ -251,7 +251,8 @@ function balagur2016_scripts() {
     wp_enqueue_script( 'balagur2016-script', get_template_directory_uri() . '/js/script.js', array( 'jquery' ), '20161212', true );
 
     // Theme stylesheet
-	wp_enqueue_style( 'balagur2016-style', get_stylesheet_uri() );
+	//wp_enqueue_style( 'balagur2016-style', get_stylesheet_uri() );
+	wp_enqueue_style( 'balagur2016-style', get_template_directory_uri() . '/style.min.css' );
 
 	// Add custom fonts, used in the main stylesheet
 	wp_enqueue_style( 'balagur2016-fonts', balagur2016_fonts_url(), array(), null );
