@@ -37,6 +37,9 @@
   .vb-header-140 {
     background-color: #AEFEFF;
   }
+  .vb-header-image {
+    background-color: #282222;
+  }
   img {
     margin: auto;
   }
@@ -400,8 +403,6 @@
     border-left: 2px solid $scheme-thin;
     border-right: 2px solid $scheme-thin;
     width: 25%;
-    //min-height: 410px;
-    //float: left;
     padding: 30px 1% 55px 2%;
   }
   .vb-se-icon {

@@ -1,25 +1,25 @@
-@import "css/common/variables";
-@import "css/common/mixins";
-@import "css/site/variables";
+@import "css/common/_variables";
+@import "css/common/_mixins";
+@import "css/site/_variables";
 
-@import "css/common/vendor-prefixes";
+@import "css/common/_vendor-prefixes";
 
-@import "css/common/normalize";
-@import "css/common/reset";
+@import "css/common/_normalize";
+@import "css/common/_reset";
 
-@import "css/common/grid";
+@import "css/common/_grid";
 
-@import "css/site/plugins";
-@import "css/common/helper";
-@import "css/site/general";
-@import "css/site/typography";
-@import "css/site/buttons";
-@import "css/site/forms";
+@import "css/site/_plugins";
+@import "css/common/_helper";
+@import "css/site/_general";
+@import "css/site/_typography";
+@import "css/site/_buttons";
+@import "css/site/_forms";
 
-@import "css/site/header.footer";
-@import "css/site/menu";
-@import "css/site/socials";
+@import "css/site/_header.footer";
+@import "css/site/_menu";
+@import "css/site/_socials";
 
-@import "css/site/main.page";
-@import "css/site/contactme";
-@import "css/site/comment";
+@import "css/site/_main.page";
+@import "css/site/_contactme";
+@import "css/site/_comment";

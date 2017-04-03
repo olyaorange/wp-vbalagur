@@ -247,6 +247,10 @@ add_action( 'wp_head', 'balagur2016_javascript_detection', 0 );
  * @since Balagur 2016 1.0
  */
 function balagur2016_scripts() {
+    // JQuery latest
+    wp_deregister_script('jquery');
+    wp_enqueue_script( 'jquery', '/wp-includes/js/jquery/jquery-3.2.0.min.js', array(), '3.2.0');
+
     // Theme script
     wp_enqueue_script( 'balagur2016-script', get_template_directory_uri() . '/js/script.js', array( 'jquery' ), '20161212', true );
 

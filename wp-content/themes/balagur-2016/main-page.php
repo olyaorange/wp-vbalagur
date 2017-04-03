@@ -28,11 +28,20 @@ get_header(); ?>
             <div class="js-slickBanners vb-banners-slider vb-slick-slider">
                 <?php foreach($custom_headers as $header) { ?>
                     <div class="vb-header-image text-center vb-header-<?php echo $header['attachment_id']; ?>">
-                        <picture>
-                            <source media="(max-width: 767px)" srcset="<?php echo substr($header['url'],0,-4); ?>-768x256.jpg">
-                            <source srcset="<?php echo $header['url']; ?>">
-                            <img class="img-responsive" src="<?php echo $header['url']; ?>" alt="<?php echo $header['alt_text']; ?>">
+                        <img class="img-responsive" alt="<?php echo $header['alt_text']; ?>"
+                             data-lazy="<?php echo $header['url']; ?>" src="">
+                        <?php /*
+                        <picture class="vb-picture-lazy">
+                            <source media="(max-width: 767px)"
+                                    data-lazy-srcset="<?php echo substr($header['url'],0,-4); ?>-768x256.jpg"
+                                    srcset="">
+                            <source data-lazy-srcset="<?php echo $header['url']; ?>"
+                                    srcset="">
+                            <img class="img-responsive"
+                                 data-lazy-src="<?php echo $header['url']; ?>" alt="<?php echo $header['alt_text']; ?>"
+                                 src="">
                         </picture>
+                        */?>
                     </div>
                 <?php } ?>
             </div><!-- .vb-banners-slider -->
@@ -47,9 +56,7 @@ get_header(); ?>
 								<h1><span>Ведущий</span>Влад Балагур</h1>
 							</div>
 							<div class="vb-about-me-para">
-								<p>
-                                    Каждое мероприятие, праздник всегда хочеться делать интересным,оригинальным и качественным.
-                                </p>
+								<p>Каждое мероприятие, праздник всегда хочеться делать интересным,оригинальным и качественным.</p>
 							</div>
 						</div>
 					</div>
@@ -110,9 +117,7 @@ get_header(); ?>
 						<div class="embed-responsive bottom-offset-xs"><iframe src="https://player.vimeo.com/video/189755826?portrait=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>
 						<div class="text-center">
 							<h5 class="bottom-offset-xs">ВЕДУЩИЙ ВЛАД БАЛАГУР</h5>
-							<p class="vb-para bottom-offset-xl">
-                                Промо-ролик. Отчётный репортаж за 2016 год
-                            </p>
+							<p class="vb-para bottom-offset-xl">Промо-ролик. Отчётный репортаж за 2016 год</p>
 						</div>
 					</div>
 				</div>
@@ -124,34 +129,34 @@ get_header(); ?>
 					<h2>Корпоративы</h2>
 				</div>
 			</div>
-            <?php /*
+
 			<div class="js-slickCorporates vb-corporates-slider vb-slick-slider">
-				<div><div><img src="/wp-content/uploads/2016/12/corporatesMTS-300x108.png" alt=""></div></div>
-				<div><div><img src="/wp-content/uploads/2016/12/corporatesSyshiya.png" alt=""></div></div>
-				<div><div><img src="/wp-content/uploads/2016/12/corporatesEpicentr-300x100.png" alt=""></div></div>
-				<div><div><img src="/wp-content/uploads/2016/12/corporatesSeat-300x239.png" alt=""></div></div>
-				<div><div><img src="/wp-content/uploads/2016/12/corporatesKyivstar-300x278.png" alt=""></div></div>
-				<div><div><img src="/wp-content/uploads/2016/12/corporatesPegas-300x63.png" alt=""></div></div>
-				<div><div><img src="/wp-content/uploads/2016/12/corporatesVega-300x203.png" alt=""></div></div>
-				<div><div><img src="/wp-content/uploads/2016/12/corporatesUkraeroruh-150x120.png" alt=""></div></div>
-				<div><div><img src="/wp-content/uploads/2016/12/corporatesEnsto.gif" alt=""></div></div>
-				<div><div><img src="/wp-content/uploads/2016/12/corporatesLeroyMerlin.gif" alt=""></div></div>
-				<div><div><img src="/wp-content/uploads/2016/12/corporatesArterium-300x240.png" alt=""></div></div>
-				<div><div><img src="/wp-content/uploads/2016/12/corporatesAis.png" alt=""></div></div>
-				<div><div><img src="/wp-content/uploads/2016/12/corporatesCaptainMorgan-300x71.png" alt=""></div></div>
-				<div><div><img src="/wp-content/uploads/2016/12/corporatesShatro.png" alt=""></div></div>
-				<div><div><img src="/wp-content/uploads/2016/12/corporatesSpytnikKiev.png" alt=""></div></div>
-				<div><div><img src="/wp-content/uploads/2016/12/corporatesTeva-300x87.png" alt=""></div></div>
-				<div><div><img src="/wp-content/uploads/2016/12/corporatesSyngenta-300x120.png" alt=""></div></div>
-				<div><div><img src="/wp-content/uploads/2016/12/corporatesKredoBank.png" alt=""></div></div>
-				<div><div><img src="/wp-content/uploads/2016/12/corporatesZenSpa-300x116.png" alt=""></div></div>
-				<div><div><img src="/wp-content/uploads/2016/12/corporatesLafarge.png" alt=""></div></div>
-				<div><div><img src="/wp-content/uploads/2016/12/corporatesRehau.png" alt=""></div></div>
-				<div><div><img src="/wp-content/uploads/2016/12/corporates360Ram-300x300.jpg" alt=""></div></div>
-				<div><div><img src="/wp-content/uploads/2016/12/corporatesHyatt-300x125.png" alt=""></div></div>
-				<div><div><img src="/wp-content/uploads/2016/12/corporatesPrestigeHall.png" alt=""></div></div>
+				<div><div><img src="" data-lazy="/wp-content/uploads/2016/12/corporatesMTS-300x108.png" alt=""></div></div>
+				<div><div><img src="" data-lazy="/wp-content/uploads/2016/12/corporatesSyshiya.png" alt=""></div></div>
+				<div><div><img src="" data-lazy="/wp-content/uploads/2016/12/corporatesEpicentr-300x100.png" alt=""></div></div>
+				<div><div><img src="" data-lazy="/wp-content/uploads/2016/12/corporatesSeat-300x239.png" alt=""></div></div>
+				<div><div><img src="" data-lazy="/wp-content/uploads/2016/12/corporatesKyivstar-300x278.png" alt=""></div></div>
+				<div><div><img src="" data-lazy="/wp-content/uploads/2016/12/corporatesPegas-300x63.png" alt=""></div></div>
+				<div><div><img src="" data-lazy="/wp-content/uploads/2016/12/corporatesVega-300x203.png" alt=""></div></div>
+				<div><div><img src="" data-lazy="/wp-content/uploads/2016/12/corporatesUkraeroruh-150x120.png" alt=""></div></div>
+				<div><div><img src="" data-lazy="/wp-content/uploads/2016/12/corporatesEnsto.gif" alt=""></div></div>
+				<div><div><img src="" data-lazy="/wp-content/uploads/2016/12/corporatesLeroyMerlin.gif" alt=""></div></div>
+				<div><div><img src="" data-lazy="/wp-content/uploads/2016/12/corporatesArterium-300x240.png" alt=""></div></div>
+				<div><div><img src="" data-lazy="/wp-content/uploads/2016/12/corporatesAis.png" alt=""></div></div>
+				<div><div><img src="" data-lazy="/wp-content/uploads/2016/12/corporatesCaptainMorgan-300x71.png" alt=""></div></div>
+				<div><div><img src="" data-lazy="/wp-content/uploads/2016/12/corporatesShatro.png" alt=""></div></div>
+				<div><div><img src="" data-lazy="/wp-content/uploads/2016/12/corporatesSpytnikKiev.png" alt=""></div></div>
+				<div><div><img src="" data-lazy="/wp-content/uploads/2016/12/corporatesTeva-300x87.png" alt=""></div></div>
+				<div><div><img src="" data-lazy="/wp-content/uploads/2016/12/corporatesSyngenta-300x120.png" alt=""></div></div>
+				<div><div><img src="" data-lazy="/wp-content/uploads/2016/12/corporatesKredoBank.png" alt=""></div></div>
+				<div><div><img src="" data-lazy="/wp-content/uploads/2016/12/corporatesZenSpa-300x116.png" alt=""></div></div>
+				<div><div><img src="" data-lazy="/wp-content/uploads/2016/12/corporatesLafarge.png" alt=""></div></div>
+				<div><div><img src="" data-lazy="/wp-content/uploads/2016/12/corporatesRehau.png" alt=""></div></div>
+				<div><div><img src="" data-lazy="/wp-content/uploads/2016/12/corporates360Ram-300x300.jpg" alt=""></div></div>
+				<div><div><img src="" data-lazy="/wp-content/uploads/2016/12/corporatesHyatt-300x125.png" alt=""></div></div>
+				<div><div><img src="" data-lazy="/wp-content/uploads/2016/12/corporatesPrestigeHall.png" alt=""></div></div>
 			</div>
-            */?>
+
 		</section>
 
 		<section id="reviews" class="vb-reviews vb-custom-bg">

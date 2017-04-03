@@ -89,6 +89,29 @@
         });
     };
 
+   /* function lazyPicture(self) {
+        if (self.find($('.vb-picture-lazy'))) {
+            self.find($('source')).each(function () {
+                $(this).animate({ opacity: 0 }, 100, function() {
+                    $(this).attr('srcset', $(this).attr('data-lazy-srcset'));
+
+                    $(this).animate({ opacity: 1 }, 200, function() {
+                        $(this).removeAttr('data-lazy-srcset');
+                    });
+                });
+            });
+            self.find($('img')).each(function () {
+                $(this).animate({ opacity: 0 }, 100, function() {
+                    $(this).attr('src', $(this).attr('data-lazy-src'));
+
+                    $(this).animate({ opacity: 1 }, 200, function() {
+                        $(this).removeAttr('data-lazy-src');
+                    });
+                });
+            })
+        }
+    }*/
+
     $.fn.scrollToLinks = function() {
         var targetIdName = "",
             targetOffsetTop = 0;
@@ -125,52 +148,35 @@
     };
 
     $.fn.lazyLoadCache = function() {
-        var _ = this;
-
-        var storage = window.localStorage;
-        if (!storage.cachedElements) {
-            storage.cachedElements = "";
-        }
-
-        function logCache(source) {
-            if (storage.cachedElements.indexOf(source, 0) < 0) {
-                if (storage.cachedElements != "")
-                    storage.cachedElements += ";";
-                storage.cachedElements += source;
-            }
-        }
-
-        function cached(source) {
-            return (storage.cachedElements.indexOf(source, 0) >= 0);
-        }
-
-        _.on('load', function() {
-            logCache($(this).attr('src'));
-        });
-        _.each(function() {
-            var source = $(this).attr('data-lazy-src');
-            if (cached(source))
-                $(this).attr('src', source);
-        });
-
-        $(window).load(function() {
-            _.each(function() {
-                if ($(this).is('[data-lazy-src]')) {
-                    if ($(this).is('img')) {
-                        $(this).attr('src', $(this).attr('data-lazy-src')).fadeIn();
-                    } else {
-                        var url = 'url(' + $(this).attr('data-lazy-src') + ')';
-                        $(this).css('background-image', url);
-                    }
+        this.each(function() {
+            if ($(this).is('[data-lazy-src]')) {
+                if ($(this).is('img')) {
+                    $(this).attr('src', $(this).attr('data-lazy-src')).fadeIn();
+                } else {
+                    var url = 'url(' + $(this).attr('data-lazy-src') + ')';
+                    $(this).css('background-image', url);
                 }
-            });
+            }
         });
     };
 
-    $(document).ready(function() {
+    $.fn.expandAjaxLoader = function() {
+        this.prepend('<span class="bar1"></span><span class="bar2"></span><span class="bar3"></span><span class="bar4"></span>');
+    };
 
+    $(document).ready(function() {
+        $('.js-slickBanners').slick({
+            infinite: true,
+            lazyLoad: 'ondemand',
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 5000,
+            arrows: false
+        });
         $('.js-slickCorporates').slick({
             infinite: true,
+            lazyLoad: 'ondemand',
             slidesToShow: 8,
             slidesToScroll: 8,
             autoplay: true,
@@ -200,26 +206,14 @@
                         slidesToScroll: 3
                     }
                 }
-                // You can unslick at a given breakpoint now by adding:
-                // settings: "unslick"
-                // instead of a settings object
             ]
         });
-
         $('.js-slickReviews').slick({
             infinite: true,
             slidesToShow: 1,
             slidesToScroll: 1,
             autoplay: true,
             autoplaySpeed: 10000,
-            arrows: false
-        });
-        $('.js-slickBanners').slick({
-            infinite: true,
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            autoplay: true,
-            autoplaySpeed: 5000,
             arrows: false
         });
 
@@ -229,10 +223,7 @@
 
         $('a[href^="#"]').scrollToLinks();
         $('.js-scrollTop').scrollToTop();
-        $(".vb-img-lazy").lazyLoadCache();
-
-       /* $( window ).load(function() {
-
-        });*/
+        $('.vb-img-lazy').lazyLoadCache();
+        $('.ajax-loader').expandAjaxLoader();
     });
 })( jQuery );
