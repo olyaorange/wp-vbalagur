@@ -29,7 +29,7 @@ get_header(); ?>
                 <?php foreach($custom_headers as $header) { ?>
                     <div class="vb-header-image text-center vb-header-<?php echo $header['attachment_id']; ?>">
                         <img class="img-responsive" alt="<?php echo $header['alt_text']; ?>"
-                             data-lazy="<?php echo $header['url']; ?>" src="">
+                             data-lazy="<?php echo $header['url']; ?>" src="/wp-content/uploads/2017/03/zero.gif">
                         <?php /*
                         <picture class="vb-picture-lazy">
                             <source media="(max-width: 767px)"
